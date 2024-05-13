@@ -60,6 +60,46 @@ public:
     }
 };
 
+// #2
+class Wheel {
+private:
+    int diameter;
+
+public:
+    Wheel(int _diameter) : diameter(_diameter) {}
+
+    Wheel() : diameter(0) {}
+
+    ~Wheel() {}
+};
+
+class Bicycle {
+private:
+    Wheel frontWheel;
+    Wheel rearWheel;
+
+public:
+    Bicycle(int frontDiameter, int rearDiameter) : frontWheel(frontDiameter), rearWheel(rearDiameter) {}
+
+
+    ~Bicycle() {}
+};
+
+class Car {
+private:
+    Wheel wheels[4];
+
+public:
+    Car(int frontLeftDiameter, int frontRightDiameter, int rearLeftDiameter, int rearRightDiameter) {
+        wheels[0] = Wheel(frontLeftDiameter);
+        wheels[1] = Wheel(frontRightDiameter);
+        wheels[2] = Wheel(rearLeftDiameter);
+        wheels[3] = Wheel(rearRightDiameter);
+    }
+
+
+    ~Car() {}
+
 int main()
 {
     std::cout << " Lab #5  !\n";
@@ -78,5 +118,9 @@ int main()
     cout << "\nUpdated data:" << endl;
     beer.print();
     wine.print();
+
+    // #2
+    Bicycle bike(26, 26);
+    Car car(18, 18, 18, 18);
 
 }
